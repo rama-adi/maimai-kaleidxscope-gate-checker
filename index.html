@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KALEIDXSCOPE Bookmarklet</title>
+  <link href="main.css" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/helvetica-neue-55" rel="stylesheet">
+  <style>
+    /* meet me at midnight ;) */
+    :root {
+      --font-serif: 'Helvetica Neue', sans-serif;
+      --c1: #b8acd1;
+      --c2: #e2d5f1;
+      --c3: #c9e8fd;
+      --c4: #526d85;
+      --c5: #4e4466;
+    }
+  </style>
+  <!-- Open Graph meta tags -->
+  <meta property="og:title" content="KALEIDXSCOPE Gate Tracker Bookmarklet" />
+  <meta property="og:description" content="Quickly check which KALEIDXSCOPE gate songs still need to be played on or after their required dates. Supports Blue, Red and Black gates." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="{OGIMG}" />
+  <meta property="og:site_name" content="KALEIDXSCOPE Tracker" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="KALEIDXSCOPE Gate Tracker Bookmarklet" />
+  <meta name="twitter:description" content="Quickly check which KALEIDXSCOPE gate songs still need to be played on or after their required dates. Supports Blue, Red and Black gates." />
+</head>
+<body class="min-h-screen bg-gradient-to-b from-[var(--c3)] via-[var(--c2)] to-[var(--c1)] text-[var(--c5)] font-sans flex items-center justify-center py-10">
+  <div class="w-full max-w-6xl px-4">
+
+    <main class="relative rounded-[28px] bg-[var(--c2)]/90 border border-[var(--c3)] shadow-[0_12px_30px_rgba(60,40,110,0.25)] overflow-hidden p-6 sm:p-8 md:p-10 space-y-10">
+
+      <!-- concise header -->
+      <header class="space-y-3">
+        <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight">KALEIDXSCOPE Gate Tracker Bookmarklet</h1>
+        <p class="max-w-2xl text-sm md:text-base text-[var(--c4)]">Quickly check which KALEIDXSCOPE gate songs still need to be played on or after their required dates. Supports Blue, Red and Black gates. Current version: {VER}</p>
+      </header>
+
+
+      <!-- screenshot gallery moved up and enlarged -->
+      <section class="space-y-4">
+        <div>
+          <h2 class="text-lg md:text-xl font-semibold">Screenshots</h2>
+          <p class="text-xs md:text-sm text-[var(--c4)]">Interface overlay and song highlighting.</p>
+        </div>
+
+        <div class="grid gap-5 md:grid-cols-3">
+          <figure class="group relative overflow-hidden rounded-2xl bg-[var(--c3)]/40 border border-[var(--c1)] shadow-md">
+            <img src="pics/ss-1.png" class="h-80 w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]" />
+          </figure>
+          <figure class="group relative overflow-hidden rounded-2xl bg-[var(--c3)]/40 border border-[var(--c1)] shadow-md">
+            <img src="pics/ss-2.png" class="h-80 w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]" />
+          </figure>
+          <figure class="group relative overflow-hidden rounded-2xl bg-[var(--c3)]/40 border border-[var(--c1)] shadow-md">
+            <img src="pics/ss-3.png" class="h-80 w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]" />
+          </figure>
+        </div>
+      </section>
+
+      <!-- short context section -->
+      <section class="rounded-2xl bg-[var(--c1)]/70 p-5 md:p-6 shadow-md border border-[var(--c3)]/70">
+        <h2 class="text-lg md:text-xl font-semibold mb-2">How Gates Work</h2>
+        <p class="text-sm md:text-base leading-relaxed text-[var(--c4)]">Keys are earned by fulfilling conditions; gates unlock at area ends. Blue, Red and Black gates each require playing specific songs from a starting date onward. The tracker shows which songs still need valid play history.</p>
+      </section>
+
+      <!-- short features -->
+      <section class="rounded-2xl bg-[var(--c1)]/70 p-5 md:p-6 shadow-md border border-[var(--c3)]/70 space-y-4">
+        <h2 class="text-lg md:text-xl font-semibold">Features</h2>
+        <ul class="list-disc list-inside space-y-1 text-sm md:text-base text-[var(--c4)]">
+          <li>Loads all required songs for Blue, Red and Black gates</li>
+          <li>Checks your recent play history to mark valid or missing plays</li>
+          <li>Can add required songs to favorites automatically</li>
+        </ul>
+      </section>
+      
+      <!-- bookmarklet instructions -->
+      <section class="rounded-2xl bg-[var(--c1)]/70 p-5 md:p-6 shadow-md border border-[var(--c3)]/70 space-y-4">
+        <h2 class="text-lg md:text-xl font-semibold">Bookmarklet Instructions</h2>
+        <p class="text-md text-[var(--c4)]">Acknowledgement: instructions adapted from Myjian's MMBL. Recommended to <a class="underline font-bold" href="https://myjian.github.io/mai-tools/#howto">Read them</a> first</p>
+
+        <h3 class="font-semibold mt-3">PC</h3>
+        <ol class="list-decimal list-inside space-y-1 text-sm md:text-base text-[var(--c4)]">
+          <li>Show your browser's bookmarks bar.</li>
+          <li>Drag the bookmarklet link into the bar to save it.</li>
+          <li>Log in to maimai DX NET and open the target page.</li>
+          <li>Click the bookmarklet to run it.</li>
+        </ol>
+
+        <a href="{BOOKMARKCODE}" class="inline-flex items-center justify-center rounded-full bg-[var(--c5)] px-6 py-3 text-sm font-semibold text-white shadow-[0_8px_20px_rgba(54,41,102,0.5)] transition transform hover:-translate-y-[2px] hover:bg-[var(--c4)]">Drag this!</a>
+
+
+        <h3 class="font-semibold mt-4">Mobile</h3>
+        <p class="text-sm md:text-base text-[var(--c4)]">The easiest way is to create the bookmarklet on PC and sync it. If manual setup is needed:</p>
+        <ol class="list-decimal list-inside space-y-1 text-sm md:text-base text-[var(--c4)]">
+          <li>Copy the bookmarklet code below.</li>
+          <li>Open your browser menu and add the page to bookmarks.</li>
+          <li>Edit the bookmark and replace its URL with the copied code.</li>
+          <li>Rename it to "KALEIDXSCOPE key" or whatever.</li>
+        </ol>
+
+        <div class="mt-4">
+          <p class="text-xs text-[var(--c4)] mb-1">Bookmarklet code</p>
+          <textarea id="bookmarklet" class="w-full text-xs bg-white p-2 rounded border border-[var(--c3)]" rows="3">{BOOKMARKCODE}</textarea>
+          <button onclick="navigator.clipboard.writeText(document.getElementById('bookmarklet').value)" class="mt-2 rounded bg-[var(--c5)] text-white px-4 py-2 text-xs">Copy to clipboard</button>
+        </div>
+
+        <h3 class="font-semibold mt-4">Executing Bookmarklets on Mobile</h3>
+        <ol class="list-decimal list-inside space-y-1 text-sm md:text-base text-[var(--c4)]">
+          <li>Open Chrome and log in to maimai DX NET.</li>
+          <li>Open the target page.</li>
+          <li>Tap the URL bar, delete the page URL and type "MMBL".</li>
+          <li>Select the bookmarklet from the suggestions.</li>
+        </ol>
+      </section>
+
+    </main>
+  </div>
+</body>
+</html>
