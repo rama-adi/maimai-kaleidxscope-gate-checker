@@ -194,40 +194,40 @@ function createModal(gate: GateInfo, statuses: SongStatusMap): ModalUI {
     const shadow = host.attachShadow({ mode: "open" });
     shadow.innerHTML = renderHtml(
         <div>
-            <style>{`:host{position:fixed;inset:0;z-index:999999;font-family:"M PLUS Rounded 1c","ヒラギノ角ゴ Pro W3",Meiryo,"ＭＳ Ｐゴシック","MS P Gothic",sans-serif;color:#1e3b75}#backdrop{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(21,66,165,.35);backdrop-filter:blur(1px);}#modal{width:min(420px,92vw);background:transparent;border:none;padding:0;margin:0;}#modal *{box-sizing:border-box;}#modal .mh-window{background:linear-gradient(180deg,#fdfcff 0%,#d9eeff 100%);border:4px solid #0e3c6e;border-radius:24px;box-shadow:0 12px 35px rgba(0,0,0,.35);overflow:hidden;}#modal .mh-header{padding:1rem 1.2rem;border-bottom:3px solid #bedfff;display:flex;flex-direction:column;gap:.75rem;}#modal .mh-title-block .mh-eyebrow{margin:0;text-transform:uppercase;font-size:.7rem;letter-spacing:.15em;color:#4f7dc9;font-weight:700;}#modal .mh-title-block h1{margin:.05rem 0 0;font-size:1.25rem;color:#0f2f63;}#modal .mh-title-block .mh-date{margin:.2rem 0 0;font-size:.8rem;color:#4a5d9b;}#modal .mh-meta{display:flex;gap:.5rem;flex-wrap:wrap;}#modal .mh-meta-card{flex:1 1 120px;background:#fff;border-radius:16px;border:2px solid #8cc5ff;padding:.45rem .6rem;display:flex;flex-direction:column;}#modal .mh-meta-label{font-size:.68rem;color:#4f678e;text-transform:uppercase;letter-spacing:.08em;}#modal .mh-meta-value{font-size:1.15rem;font-weight:700;color:#0f2f63;}#modal .mh-section{margin:.85rem 1.15rem;background:#fff;border-radius:18px;border:3px solid #8cc5ff;padding:.9rem;}#modal .mh-section .mh-note{margin:.1rem 0;color:#37538c;font-size:.82rem;}#song-list{margin-top:.6rem;padding-left:0;max-height:12.5rem;overflow:auto;list-style:none;}#song-list::-webkit-scrollbar{width:8px;}#song-list::-webkit-scrollbar-thumb{background:#8ec5ff;border-radius:8px;}#modal .mh-song{display:flex;align-items:center;gap:.55rem;padding:.35rem .4rem;margin-bottom:.25rem;border-radius:16px;border:2px dashed transparent;background:#f3f8ff;}#modal .mh-song.is-active{border-color:#ffaf00;background:#fff4da;}#modal .mh-song.completed{background:#ebffe7;border-color:#7dcf62;}#modal .mh-song .mh-song-icon{width:2rem;height:2rem;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;background:#fff;border:2px solid #0e3c6e;}#modal .mh-song .mh-song-body{display:flex;flex-direction:column;gap:.12rem;flex:1;}#modal .mh-song-title{font-weight:700;color:#122c63;font-size:.9rem;}#modal .mh-song-tag{font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;}#modal .mh-status-panel{margin:0 1.15rem .85rem;padding:.85rem;background:#fff;border-radius:18px;border:3px solid #f6b4ff;}#modal .mh-status-line{margin:0 0 .45rem;font-weight:700;color:#511f99;}#modal .mh-log{max-height:6rem;overflow:auto;}#modal .mh-log-list{margin:0;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:.2rem;font-size:.76rem;}#modal .mh-log-line{display:flex;gap:.35rem;align-items:flex-start;}#modal .mh-log-bullet{width:.5rem;height:.5rem;border-radius:4px;background:linear-gradient(135deg,#ff7bb4,#ffbe60);margin-top:.35rem;box-shadow:0 0 4px rgba(255,126,180,.45);}#modal .mh-log-text{flex:1;color:#3e4c7e;line-height:1.3;}#modal .mh-footer{display:flex;justify-content:space-between;gap:.5rem;margin:0 1.15rem .85rem;font-size:.7rem;color:#4f678e;align-items:center;}#modal .mh-footer a{color:#3b6fd4;text-decoration:none;font-weight:700;}#modal .btn-row{display:flex;gap:.75rem;margin:0 1.15rem 1.15rem;}#modal .mh-actions button{flex:1;border:none;padding:.8rem .95rem;border-radius:18px;font-size:.9rem;font-weight:700;cursor:pointer;transition:transform .2s ease,box-shadow .2s ease;}#modal .btn-light{background:#fff;border:3px solid #8cc5ff;color:#1f3f7a;box-shadow:0 3px 0 #4c87c1;}#modal .btn-dark{background:linear-gradient(135deg,#f85da8,#f2a549);border:3px solid #a3296b;color:#fff;box-shadow:0 3px 0 #741a48;}#modal .mh-actions button:active{transform:translateY(2px);box-shadow:0 1px 0 rgba(0,0,0,.25);}@media (max-width:480px){#modal .mh-meta{flex-direction:column;}#modal .mh-window{border-width:3px;border-radius:20px;}}`}</style>
+            <style>{`:host{position:fixed;inset:0;z-index:999999;font-family:"M PLUS Rounded 1c","ヒラギノ角ゴ Pro W3",Meiryo,"ＭＳ Ｐゴシック","MS P Gothic",sans-serif;color:#1e3b75}#backdrop{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(21,66,165,.35);backdrop-filter:blur(1px);}#modal{width:min(420px,92vw);background:transparent;border:none;padding:0;margin:0;}#modal *{box-sizing:border-box;}#modal .lavenderhaze-window{background:linear-gradient(180deg,#fdfcff 0%,#d9eeff 100%);border:4px solid #0e3c6e;border-radius:24px;box-shadow:0 12px 35px rgba(0,0,0,.35);overflow:hidden;}#modal .lavenderhaze-header{padding:1rem 1.2rem;border-bottom:3px solid #bedfff;display:flex;flex-direction:column;gap:.75rem;}#modal .lavenderhaze-title-block .lavenderhaze-eyebrow{margin:0;text-transform:uppercase;font-size:.7rem;letter-spacing:.15em;color:#4f7dc9;font-weight:700;}#modal .lavenderhaze-title-block h1{margin:.05rem 0 0;font-size:1.25rem;color:#0f2f63;}#modal .lavenderhaze-title-block .lavenderhaze-date{margin:.2rem 0 0;font-size:.8rem;color:#4a5d9b;}#modal .lavenderhaze-meta{display:flex;gap:.5rem;flex-wrap:wrap;}#modal .lavenderhaze-meta-card{flex:1 1 120px;background:#fff;border-radius:16px;border:2px solid #8cc5ff;padding:.45rem .6rem;display:flex;flex-direction:column;}#modal .lavenderhaze-meta-label{font-size:.68rem;color:#4f678e;text-transform:uppercase;letter-spacing:.08em;}#modal .lavenderhaze-meta-value{font-size:1.15rem;font-weight:700;color:#0f2f63;}#modal .lavenderhaze-section{margin:.85rem 1.15rem;background:#fff;border-radius:18px;border:3px solid #8cc5ff;padding:.9rem;}#modal .lavenderhaze-section .lavenderhaze-note{margin:.1rem 0;color:#37538c;font-size:.82rem;}#song-list{margin-top:.6rem;padding-left:0;max-height:12.5rem;overflow:auto;list-style:none;}#song-list::-webkit-scrollbar{width:8px;}#song-list::-webkit-scrollbar-thumb{background:#8ec5ff;border-radius:8px;}#modal .lavenderhaze-song{display:flex;align-items:center;gap:.55rem;padding:.35rem .4rem;margin-bottom:.25rem;border-radius:16px;border:2px dashed transparent;background:#f3f8ff;}#modal .lavenderhaze-song.is-active{border-color:#ffaf00;background:#fff4da;}#modal .lavenderhaze-song.completed{background:#ebffe7;border-color:#7dcf62;}#modal .lavenderhaze-song .lavenderhaze-song-icon{width:2rem;height:2rem;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;background:#fff;border:2px solid #0e3c6e;}#modal .lavenderhaze-song .lavenderhaze-song-body{display:flex;flex-direction:column;gap:.12rem;flex:1;}#modal .lavenderhaze-song-title{font-weight:700;color:#122c63;font-size:.9rem;}#modal .lavenderhaze-song-tag{font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;}#modal .lavenderhaze-status-panel{margin:0 1.15rem .85rem;padding:.85rem;background:#fff;border-radius:18px;border:3px solid #f6b4ff;}#modal .lavenderhaze-status-line{margin:0 0 .45rem;font-weight:700;color:#511f99;}#modal .lavenderhaze-log{max-height:6rem;overflow:auto;}#modal .lavenderhaze-log-list{margin:0;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:.2rem;font-size:.76rem;}#modal .lavenderhaze-log-line{display:flex;gap:.35rem;align-items:flex-start;}#modal .lavenderhaze-log-bullet{width:.5rem;height:.5rem;border-radius:4px;background:linear-gradient(135deg,#ff7bb4,#ffbe60);margin-top:.35rem;box-shadow:0 0 4px rgba(255,126,180,.45);}#modal .lavenderhaze-log-text{flex:1;color:#3e4c7e;line-height:1.3;}#modal .lavenderhaze-footer{display:flex;justify-content:space-between;gap:.5rem;margin:0 1.15rem .85rem;font-size:.7rem;color:#4f678e;align-items:center;}#modal .lavenderhaze-footer a{color:#3b6fd4;text-decoration:none;font-weight:700;}#modal .btn-row{display:flex;gap:.75rem;margin:0 1.15rem 1.15rem;}#modal .lavenderhaze-actions button{flex:1;border:none;padding:.8rem .95rem;border-radius:18px;font-size:.9rem;font-weight:700;cursor:pointer;transition:transform .2s ease,box-shadow .2s ease;}#modal .btn-light{background:#fff;border:3px solid #8cc5ff;color:#1f3f7a;box-shadow:0 3px 0 #4c87c1;}#modal .btn-dark{background:linear-gradient(135deg,#f85da8,#f2a549);border:3px solid #a3296b;color:#fff;box-shadow:0 3px 0 #741a48;}#modal .lavenderhaze-actions button:active{transform:translateY(2px);box-shadow:0 1px 0 rgba(0,0,0,.25);}@media (max-width:480px){#modal .lavenderhaze-meta{flex-direction:column;}#modal .lavenderhaze-window{border-width:3px;border-radius:20px;}}`}</style>
             <div id="backdrop">
                 <div id="modal">
-                    <div class="mh-window">
-                        <header class="mh-header">
-                            <div class="mh-title-block">
-                                <p class="mh-eyebrow">Gate tracker</p>
+                    <div class="lavenderhaze-window">
+                        <header class="lavenderhaze-header">
+                            <div class="lavenderhaze-title-block">
+                                <p class="lavenderhaze-eyebrow">Gate tracker</p>
                                 <h1>{gate.gateName}</h1>
-                                <p class="mh-date">Checking plays on or after {gate.unlockDate.toLocaleDateString()}</p>
+                                <p class="lavenderhaze-date">Checking plays on or after {gate.unlockDate.toLocaleDateString()}</p>
                             </div>
-                            <div class="mh-meta">
-                                <div class="mh-meta-card">
-                                    <span class="mh-meta-label">Tracked songs</span>
-                                    <span class="mh-meta-value">{gate.songs.length}</span>
+                            <div class="lavenderhaze-meta">
+                                <div class="lavenderhaze-meta-card">
+                                    <span class="lavenderhaze-meta-label">Tracked songs</span>
+                                    <span class="lavenderhaze-meta-value">{gate.songs.length}</span>
                                 </div>
-                                <div class="mh-meta-card">
-                                    <span class="mh-meta-label">Need to replay</span>
-                                    <span class="mh-meta-value" id="mh-remaining-count">Updating…</span>
+                                <div class="lavenderhaze-meta-card">
+                                    <span class="lavenderhaze-meta-label">Need to replay</span>
+                                    <span class="lavenderhaze-meta-value" id="lavenderhaze-remaining-count">Updating…</span>
                                 </div>
                             </div>
                         </header>
-                        <section class="mh-section">
-                            <p class="mh-note">Below are all songs with their current status. The list updates live while your history is checked.</p>
-                            <ol id="song-list" class="mh-song-list"></ol>
+                        <section class="lavenderhaze-section">
+                            <p class="lavenderhaze-note">Below are all songs with their current status. The list updates live while your history is checked.</p>
+                            <ol id="song-list" class="lavenderhaze-song-list"></ol>
                         </section>
-                        <section class="mh-status-panel">
-                            <p id="current-checking" class="mh-status-line"></p>
-                            <div id="loading-indicator" class="mh-log"></div>
+                        <section class="lavenderhaze-status-panel">
+                            <p id="current-checking" class="lavenderhaze-status-line"></p>
+                            <div id="loading-indicator" class="lavenderhaze-log"></div>
                         </section>
-                        <div class="mh-footer">
+                        <div class="lavenderhaze-footer">
                             <span>Made by Onebyte</span>
                             <a href="https://github.com/rama-adi" target="_blank" rel="noopener noreferrer">github.com/rama-adi</a>
                         </div>
-                        <div class="btn-row mh-actions" id="action-row"></div>
+                        <div class="btn-row lavenderhaze-actions" id="action-row"></div>
                     </div>
                 </div>
             </div>
@@ -238,7 +238,7 @@ function createModal(gate: GateInfo, statuses: SongStatusMap): ModalUI {
     const statusEl = shadow.getElementById("current-checking");
     const progressEl = shadow.getElementById("loading-indicator");
     const actionRow = shadow.getElementById("action-row");
-    const remainingCountEl = shadow.getElementById("mh-remaining-count");
+    const remainingCountEl = shadow.getElementById("lavenderhaze-remaining-count");
 
     const renderSongList = (currentTitle: string | null = null) => {
         if (!songList) return;
@@ -249,13 +249,13 @@ function createModal(gate: GateInfo, statuses: SongStatusMap): ModalUI {
                     const isActive = title === currentTitle;
                     const icon = isActive ? "➡️" : status === "completed" ? "✅" : "☆";
                     const tagText = isActive ? "Checking" : status === "completed" ? "Played" : "Needs play";
-                    const classes = `mh-song ${status}${isActive ? " is-active" : ""}`;
+                    const classes = `lavenderhaze-song ${status}${isActive ? " is-active" : ""}`;
                     return (
                         <li class={classes}>
-                            <span class="mh-song-icon" aria-hidden="true">{icon}</span>
-                            <div class="mh-song-body">
-                                <span class="mh-song-title">{title}</span>
-                                <span class="mh-song-tag">{tagText}</span>
+                            <span class="lavenderhaze-song-icon" aria-hidden="true">{icon}</span>
+                            <div class="lavenderhaze-song-body">
+                                <span class="lavenderhaze-song-title">{title}</span>
+                                <span class="lavenderhaze-song-tag">{tagText}</span>
                             </div>
                         </li>
                     );
@@ -293,11 +293,11 @@ function createModal(gate: GateInfo, statuses: SongStatusMap): ModalUI {
 
 function renderProgressLog(entries: string[]) {
     return renderHtml(
-        <ul class="mh-log-list">
+        <ul class="lavenderhaze-log-list">
             {entries.map(entry => (
-                <li class="mh-log-line">
-                    <span class="mh-log-bullet" aria-hidden="true"></span>
-                    <span class="mh-log-text">{entry}</span>
+                <li class="lavenderhaze-log-line">
+                    <span class="lavenderhaze-log-bullet" aria-hidden="true"></span>
+                    <span class="lavenderhaze-log-text">{entry}</span>
                 </li>
             ))}
         </ul>

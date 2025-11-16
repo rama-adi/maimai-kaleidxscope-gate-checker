@@ -2,11 +2,12 @@
   "name": "lavenderhaze",
   "module": "index.ts",
   "scripts": {
-    "deploy": "bun index.ts && wrangler deploy dist"
+    "deploy": "bun index.ts && bunx wrangler deploy --assets=./dist"
   },
   "devDependencies": {
     "@types/bun": "latest",
-    "bun-plugin-tailwind": "^0.1.2"
+    "bun-plugin-tailwind": "^0.1.2",
+    "wrangler": "^4.47.0"
   },
   "peerDependencies": {
     "typescript": "^5"
