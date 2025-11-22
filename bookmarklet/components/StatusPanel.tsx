@@ -1,4 +1,3 @@
-import "../main.css";
 import { h } from "preact";
 
 interface StatusPanelProps {

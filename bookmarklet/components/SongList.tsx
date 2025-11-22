@@ -1,4 +1,3 @@
-import "../main.css";
 import { h } from "preact";
 import type { GateInfo, SongStatusMap } from "../types";
 
