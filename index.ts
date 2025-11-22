@@ -25,10 +25,15 @@ await Bun.build({
 });
 
 const bookmarklet = await Bun.build({
-    entrypoints: ['./lavenderhaze.tsx'],
+    entrypoints: ['./bookmarklet/lavenderhaze.tsx'],
     target: 'browser', // default,
     format: 'iife',
-    minify: true
+    minify: true,
+    jsx: {
+        importSource: "preact",
+        runtime: "automatic",
+    },
+    tsconfig: "bookmarklet/tsconfig.json"
 });
 
 // Copy pics/ogp.png to dist/ogp.png using Bun's file/stream utilities
