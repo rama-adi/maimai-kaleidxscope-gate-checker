@@ -1,10 +1,13 @@
 import { FAVORITES_HOST, FAVORITES_PATH, FAVORITES_URL, GATE_DEFINITIONS, type GateId } from "../constants";
 import type { GateInfo, SongStatusMap } from "../types";
 
-export function ensureOnFavoritesPage(): boolean {
+export function onFavoritesPage(): boolean {
     const { hostname, pathname } = window.location;
-    if (hostname === FAVORITES_HOST && pathname === FAVORITES_PATH) return true;
+    return hostname === FAVORITES_HOST && pathname === FAVORITES_PATH;
+}
 
+export function ensureOnFavoritesPage(): boolean {
+    if (onFavoritesPage()) return true;
     const go = confirm("This bookmarklet should be run on the music favorite list page, do you want to go there and rerun the script");
     if (go) window.location.href = FAVORITES_URL;
     return false;

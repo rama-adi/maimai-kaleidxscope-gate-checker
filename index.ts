@@ -44,6 +44,26 @@ await Bun.write(`dist/ogp_${VER}.png`, ogpSource);
 const text = await bookmarklet.outputs[0]?.text();
 await Bun.write(`dist/${BOOKMARKLET_FILE}`, text ?? "");
 
+// Create userscript
+const userscript = await Bun.build({
+    entrypoints: ['./bookmarklet/userscript.tsx'],
+    target: 'browser', // default,
+    format: 'iife',
+    minify: false,
+    jsx: {
+        importSource: "preact",
+        runtime: "automatic",
+    },
+    sourcemap: 'linked',
+    tsconfig: "bookmarklet/tsconfig.json"
+});
+
+// load the template file and append the userscript to the last element
+let userscriptTemplate = await Bun.file("userscript-template.ts").text();
+userscriptTemplate = userscriptTemplate.replace(/{VER}/g, VER.toString());
+const userscriptText = await userscript.outputs[0]?.text() ?? "";
+userscriptTemplate = userscriptTemplate.replace(/\/\/ <CODE>/g, userscriptText);
+await Bun.write(`dist/userscript_${VER}.user.js`, userscriptTemplate);
 
 // Load the generated index.html from dist, replace version and bookmarklet code placeholders, and write back.
 let html = await Bun.file("dist/index.html").text();

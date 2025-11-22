@@ -5,6 +5,11 @@ export const FAVORITES_PATH = "/maimai-mobile/home/userOption/favorite/updateMus
 export const FAVORITES_URL = `https://${FAVORITES_HOST}${FAVORITES_PATH}`;
 export const SONG_SEARCH_URL = "https://maimaidx-eng.com/maimai-mobile/record/musicGenre/search/?genre=99&diff=0";
 
+export const SELECTORS = {
+    NON_FAVORITES_PAGE_TARGET: 'body > div.wrapper.main_wrapper.t_c > div.see_through_block.m_15.m_t_10.p_10.p_r.t_l.f_0',
+    FAVORITES_PAGE_NAV_TARGET: '#nav > div:nth-child(3)',
+};
+
 export const DIFFICULTY_IDS: DifficultyId[] = ["basic", "advanced", "expert", "master", "remaster"];
 
 export const GATE_DEFINITIONS = {

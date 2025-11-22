@@ -2,6 +2,7 @@ import { render, h } from "preact";
 import { GATE_DEFINITIONS } from "./constants";
 import { ensureOnFavoritesPage, promptForGateSelection, initializeSongStatuses } from "./utils/dom";
 import { App } from "./components/App";
+import { createModalContainer } from "./utils/injection";
 
 function bookmarklet() {
     if (!ensureOnFavoritesPage()) return;
@@ -11,25 +12,12 @@ function bookmarklet() {
     const gate = GATE_DEFINITIONS[gateId];
     const initialStatuses = initializeSongStatuses(gate);
 
-    const host = document.createElement("div");
-    document.body.appendChild(host);
-    const shadow = host.attachShadow({ mode: "open" });
+    const container = createModalContainer();
+    if (!container) return;
 
-    // Container for Preact
-    const container = document.createElement("div");
-    container.id = "backdrop";
-    container.innerHTML = '<div id="modal"></div>';
-    shadow.appendChild(container);
+    const { modalRoot, remove } = container;
 
-    const modalRoot = container.querySelector("#modal");
-    if (!modalRoot) return;
-
-    const onClose = () => {
-        render(null, modalRoot);
-        host.remove();
-    };
-
-    render(<App gate={gate} initialStatuses={initialStatuses} onClose={onClose} />, modalRoot);
+    render(<App gate={gate} initialStatuses={initialStatuses} onClose={remove} />, modalRoot);
 }
 
 bookmarklet();
