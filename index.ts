@@ -58,17 +58,17 @@ async function ensureCleanDist() {
 
 async function buildHomepage() {
     log.info("Building homepage...");
-    await Bun.build({ entrypoints: ['./index.html'], outdir: "dist" });
+    await Bun.build({ entrypoints: ['index.html'], outdir: "dist", plugins: [tailwind] });
     log.sub("Homepage built");
 }
 
-async function build(entrypoint: string) {
+async function build(entrypoint: string, minify: boolean = true) {
     log.info(`Building ${entrypoint}...`);
     const result = await Bun.build({
         entrypoints: [entrypoint],
         target: 'browser',
         format: 'iife',
-        minify: true,
+        minify,
         plugins: [tailwind],
         jsx: { importSource: "preact", runtime: "automatic" },
         tsconfig: "bookmarklet/tsconfig.json"
@@ -139,7 +139,7 @@ async function main() {
     // Run builds in parallel
     const [bookmarkletBuild, userscriptBuild] = await Promise.all([
         build("bookmarklet/lavenderhaze.tsx"),
-        build("bookmarklet/userscript.tsx")
+        build("bookmarklet/userscript.tsx", false)
     ]);
 
     await copyAssets();
