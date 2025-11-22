@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -16,106 +17,191 @@
       --c4: #526d85;
       --c5: #4e4466;
     }
+
+    body {
+      background-color: var(--c3);
+      background-image:
+        linear-gradient(45deg, var(--c2) 25%, transparent 25%, transparent 75%, var(--c2) 75%, var(--c2)),
+        linear-gradient(45deg, var(--c2) 25%, transparent 25%, transparent 75%, var(--c2) 75%, var(--c2));
+      background-size: 60px 60px;
+      background-position: 0 0, 30px 30px;
+    }
   </style>
   <!-- Open Graph meta tags -->
   <meta property="og:title" content="KALEIDXSCOPE Gate Tracker Bookmarklet" />
-  <meta property="og:description" content="Quickly check which KALEIDXSCOPE gate songs still need to be played on or after their required dates. Supports Blue, Red and Black gates." />
+  <meta property="og:description"
+    content="Quickly check which KALEIDXSCOPE gate songs still need to be played on or after their required dates. Supports Blue, Red and Black gates." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="{OGIMG}" />
   <meta property="og:site_name" content="KALEIDXSCOPE Tracker" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="KALEIDXSCOPE Gate Tracker Bookmarklet" />
-  <meta name="twitter:description" content="Quickly check which KALEIDXSCOPE gate songs still need to be played on or after their required dates. Supports Blue, Red and Black gates." />
+  <meta name="twitter:description"
+    content="Quickly check which KALEIDXSCOPE gate songs still need to be played on or after their required dates. Supports Blue, Red and Black gates." />
 </head>
-<body class="min-h-screen bg-gradient-to-b from-[var(--c3)] via-[var(--c2)] to-[var(--c1)] text-[var(--c5)] font-sans flex items-center justify-center py-10">
-  <div class="w-full max-w-6xl px-4">
 
-    <main class="relative rounded-[28px] bg-[var(--c2)]/90 border border-[var(--c3)] shadow-[0_12px_30px_rgba(60,40,110,0.25)] overflow-hidden p-6 sm:p-8 md:p-10 space-y-10">
+<body class="min-h-screen text-[var(--c5)] font-sans flex items-center justify-center py-10">
+  <div class="w-full max-w-5xl px-4">
+
+    <main
+      class="relative rounded-3xl bg-white/90 border-4 border-[var(--c1)] shadow-[0_0_0_10px_var(--c2)] overflow-hidden p-6 sm:p-10 space-y-12">
 
       <!-- concise header -->
-      <header class="space-y-3">
-        <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight">KALEIDXSCOPE Gate Tracker Bookmarklet</h1>
-        <p class="max-w-2xl text-sm md:text-base text-[var(--c4)]">Quickly check which KALEIDXSCOPE gate songs still need to be played on or after their required dates. Supports Blue, Red and Black gates. Current version: {VER}</p>
+      <header class="text-center space-y-4">
+        <div
+          class="inline-block bg-[var(--c5)] text-white px-4 py-1 rounded-full text-xs font-bold tracking-widest uppercase mb-2 shadow-lg transform -rotate-2">
+          Version {VER}
+        </div>
+        <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-[var(--c5)] drop-shadow-sm">
+          KALEIDXSCOPE <br class="md:hidden" /> <span class="text-[var(--c4)]">Gate Tracker</span>
+        </h1>
+        <p class="max-w-2xl mx-auto text-lg font-medium text-[var(--c4)]">
+          Quickly check which KALEIDXSCOPE gate songs still need to be played. Supports Blue, Red and Black gates.
+        </p>
       </header>
 
 
       <!-- screenshot gallery moved up and enlarged -->
-      <section class="space-y-4">
-        <div>
-          <h2 class="text-lg md:text-xl font-semibold">Screenshots</h2>
-          <p class="text-xs md:text-sm text-[var(--c4)]">Interface overlay and song highlighting.</p>
+      <section class="space-y-6">
+        <div class="text-center">
+          <h2 class="text-2xl font-bold text-[var(--c5)] flex items-center justify-center gap-2">
+            <span class="w-8 h-1 bg-[var(--c1)] rounded-full"></span>
+            Screenshots
+            <span class="w-8 h-1 bg-[var(--c1)] rounded-full"></span>
+          </h2>
         </div>
 
-        <div class="grid gap-5 md:grid-cols-3">
-          <figure class="group relative overflow-hidden rounded-2xl bg-[var(--c3)]/40 border border-[var(--c1)] shadow-md">
-            <img src="pics/ss-1.png" class="h-80 w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]" />
+        <div class="grid gap-6 md:grid-cols-3">
+          <figure
+            class="group relative overflow-hidden rounded-xl border-4 border-[var(--c2)] bg-[var(--c3)] shadow-lg transition-all hover:-translate-y-1 hover:shadow-xl">
+            <div class="absolute top-0 left-0 w-full h-1 bg-white/50 z-10"></div>
+            <img src="pics/ss-1.png" class="h-64 w-full object-cover" />
           </figure>
-          <figure class="group relative overflow-hidden rounded-2xl bg-[var(--c3)]/40 border border-[var(--c1)] shadow-md">
-            <img src="pics/ss-2.png" class="h-80 w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]" />
+          <figure
+            class="group relative overflow-hidden rounded-xl border-4 border-[var(--c2)] bg-[var(--c3)] shadow-lg transition-all hover:-translate-y-1 hover:shadow-xl">
+            <div class="absolute top-0 left-0 w-full h-1 bg-white/50 z-10"></div>
+            <img src="pics/ss-2.png" class="h-64 w-full object-cover" />
           </figure>
-          <figure class="group relative overflow-hidden rounded-2xl bg-[var(--c3)]/40 border border-[var(--c1)] shadow-md">
-            <img src="pics/ss-3.png" class="h-80 w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]" />
+          <figure
+            class="group relative overflow-hidden rounded-xl border-4 border-[var(--c2)] bg-[var(--c3)] shadow-lg transition-all hover:-translate-y-1 hover:shadow-xl">
+            <div class="absolute top-0 left-0 w-full h-1 bg-white/50 z-10"></div>
+            <img src="pics/ss-3.png" class="h-64 w-full object-cover" />
           </figure>
         </div>
       </section>
 
       <!-- short context section -->
-      <section class="rounded-2xl bg-[var(--c1)]/70 p-5 md:p-6 shadow-md border border-[var(--c3)]/70">
-        <h2 class="text-lg md:text-xl font-semibold mb-2">How Gates Work</h2>
-        <p class="text-sm md:text-base leading-relaxed text-[var(--c4)]">Keys are earned by fulfilling conditions; gates unlock at area ends. Blue, Red and Black gates each require playing specific songs from a starting date onward. The tracker shows which songs still need valid play history.</p>
+      <section class="rounded-2xl bg-[var(--c2)]/30 p-6 md:p-8 border-2 border-[var(--c1)] relative overflow-hidden">
+        <div class="absolute -right-10 -top-10 w-32 h-32 bg-[var(--c3)] rounded-full blur-3xl opacity-50"></div>
+        <h2 class="text-xl md:text-2xl font-bold mb-3 text-[var(--c5)] relative z-10">How Gates Work</h2>
+        <p class="text-base md:text-lg leading-relaxed text-[var(--c4)] relative z-10 font-medium">
+          Keys are earned by fulfilling conditions; gates unlock at area ends. <span
+            class="font-bold text-[var(--c5)]">Blue, Red and Black gates</span> each require playing specific songs from
+          a starting date onward. The tracker shows which songs still need valid play history.
+        </p>
       </section>
 
       <!-- short features -->
-      <section class="rounded-2xl bg-[var(--c1)]/70 p-5 md:p-6 shadow-md border border-[var(--c3)]/70 space-y-4">
-        <h2 class="text-lg md:text-xl font-semibold">Features</h2>
-        <ul class="list-disc list-inside space-y-1 text-sm md:text-base text-[var(--c4)]">
-          <li>Loads all required songs for Blue, Red and Black gates</li>
-          <li>Checks your recent play history to mark valid or missing plays</li>
-          <li>Can add required songs to favorites automatically</li>
+      <section class="rounded-2xl bg-[var(--c2)]/30 p-6 md:p-8 border-2 border-[var(--c1)] relative overflow-hidden">
+        <div class="absolute -left-10 -bottom-10 w-32 h-32 bg-[var(--c3)] rounded-full blur-3xl opacity-50"></div>
+        <h2 class="text-xl md:text-2xl font-bold mb-4 text-[var(--c5)] relative z-10">Features</h2>
+        <ul class="space-y-3 text-base md:text-lg text-[var(--c4)] relative z-10 font-medium">
+          <li class="flex items-start gap-3">
+            <span class="mt-1.5 w-2 h-2 rounded-full bg-[var(--c5)] shrink-0"></span>
+            Loads all required songs for Blue, Red and Black gates
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="mt-1.5 w-2 h-2 rounded-full bg-[var(--c5)] shrink-0"></span>
+            Checks your recent play history to mark valid or missing plays
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="mt-1.5 w-2 h-2 rounded-full bg-[var(--c5)] shrink-0"></span>
+            Can add required songs to favorites automatically
+          </li>
         </ul>
       </section>
-      
+
       <!-- bookmarklet instructions -->
-      <section class="rounded-2xl bg-[var(--c1)]/70 p-5 md:p-6 shadow-md border border-[var(--c3)]/70 space-y-4">
-        <h2 class="text-lg md:text-xl font-semibold">Bookmarklet Instructions</h2>
-        <p class="text-md text-[var(--c4)]">Acknowledgement: instructions adapted from Myjian's MMBL. Recommended to <a class="underline font-bold" href="https://myjian.github.io/mai-tools/#howto">Read them</a> first</p>
+      <section class="rounded-2xl bg-[var(--c5)] text-white p-6 md:p-8 shadow-xl relative overflow-hidden">
+        <!-- decorative circles -->
+        <div class="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -mr-16 -mt-16"></div>
+        <div class="absolute bottom-0 left-0 w-40 h-40 bg-white/5 rounded-full -ml-10 -mb-10"></div>
 
-        <h3 class="font-semibold mt-3">PC</h3>
-        <ol class="list-decimal list-inside space-y-1 text-sm md:text-base text-[var(--c4)]">
-          <li>Show your browser's bookmarks bar.</li>
-          <li>Drag the bookmarklet link into the bar to save it.</li>
-          <li>Log in to maimai DX NET and open the target page.</li>
-          <li>Click the bookmarklet to run it.</li>
-        </ol>
+        <div class="relative z-10">
+          <h2 class="text-2xl md:text-3xl font-bold mb-2">Get Started</h2>
+          <p class="text-white/80 mb-6">
+            Acknowledgement: instructions adapted from Myjian's MMBL. Recommended to <a
+              class="underline font-bold hover:text-[var(--c3)] transition-colors"
+              href="https://myjian.github.io/mai-tools/#howto">Read them</a> first
+          </p>
 
-        <a href="{BOOKMARKCODE}" class="inline-flex items-center justify-center rounded-full bg-[var(--c5)] px-6 py-3 text-sm font-semibold text-white shadow-[0_8px_20px_rgba(54,41,102,0.5)] transition transform hover:-translate-y-[2px] hover:bg-[var(--c4)]">Drag this!</a>
+          <div class="bg-white/10 rounded-xl p-6 backdrop-blur-sm border border-white/20 mb-8">
+            <h3 class="font-bold text-xl mb-4 flex items-center gap-2">
+              <span class="bg-white text-[var(--c5)] w-6 h-6 rounded flex items-center justify-center text-sm">PC</span>
+              Desktop Instructions
+            </h3>
+            <ol class="list-decimal list-inside space-y-2 text-white/90 font-medium">
+              <li>Show your browser's bookmarks bar.</li>
+              <li>Drag the button below into the bar to save it.</li>
+              <li>Log in to maimai DX NET and open the target page.</li>
+              <li>Click the bookmarklet to run it.</li>
+            </ol>
 
+            <div class="mt-8 flex justify-center">
+              <a href="{BOOKMARKCODE}" class="group relative inline-flex items-center justify-center">
+                <div
+                  class="absolute inset-0 rounded-full bg-[var(--c3)] translate-y-2 transition-transform group-hover:translate-y-3">
+                </div>
+                <div
+                  class="relative bg-white text-[var(--c5)] px-8 py-4 rounded-full font-black text-xl tracking-wide shadow-xl transition-transform group-hover:translate-y-1 border-4 border-[var(--c3)] flex items-center gap-3">
+                  <span class="text-2xl">★</span> DRAG THIS! <span class="text-2xl">★</span>
+                </div>
+              </a>
+            </div>
+          </div>
 
-        <h3 class="font-semibold mt-4">Mobile</h3>
-        <p class="text-sm md:text-base text-[var(--c4)]">The easiest way is to create the bookmarklet on PC and sync it. If manual setup is needed:</p>
-        <ol class="list-decimal list-inside space-y-1 text-sm md:text-base text-[var(--c4)]">
-          <li>Copy the bookmarklet code below.</li>
-          <li>Open your browser menu and add the page to bookmarks.</li>
-          <li>Edit the bookmark and replace its URL with the copied code.</li>
-          <li>Rename it to "KALEIDXSCOPE key" or whatever.</li>
-        </ol>
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="bg-white/10 rounded-xl p-6 backdrop-blur-sm border border-white/20">
+              <h3 class="font-bold text-lg mb-3 flex items-center gap-2">
+                <span
+                  class="bg-white text-[var(--c5)] w-6 h-6 rounded flex items-center justify-center text-sm">M</span>
+                Mobile Setup
+              </h3>
+              <ol class="list-decimal list-inside space-y-2 text-sm text-white/90">
+                <li>Copy the code below.</li>
+                <li>Add any page to bookmarks.</li>
+                <li>Edit it and paste the code as URL.</li>
+                <li>Rename to "KALEIDXSCOPE".</li>
+              </ol>
+              <div class="mt-4">
+                <textarea id="bookmarklet"
+                  class="w-full text-xs bg-[var(--c5)] text-white/70 p-3 rounded-lg border border-white/20 font-mono"
+                  rows="3" readonly>{BOOKMARKCODE}</textarea>
+                <button onclick="navigator.clipboard.writeText(document.getElementById('bookmarklet').value)"
+                  class="mt-2 w-full rounded-lg bg-[var(--c3)] text-[var(--c5)] font-bold px-4 py-2 text-sm hover:bg-white transition-colors">Copy
+                  Code</button>
+              </div>
+            </div>
 
-        <div class="mt-4">
-          <p class="text-xs text-[var(--c4)] mb-1">Bookmarklet code</p>
-          <textarea id="bookmarklet" class="w-full text-xs bg-white p-2 rounded border border-[var(--c3)]" rows="3">{BOOKMARKCODE}</textarea>
-          <button onclick="navigator.clipboard.writeText(document.getElementById('bookmarklet').value)" class="mt-2 rounded bg-[var(--c5)] text-white px-4 py-2 text-xs">Copy to clipboard</button>
+            <div class="bg-white/10 rounded-xl p-6 backdrop-blur-sm border border-white/20">
+              <h3 class="font-bold text-lg mb-3 flex items-center gap-2">
+                <span
+                  class="bg-white text-[var(--c5)] w-6 h-6 rounded flex items-center justify-center text-sm">▶</span>
+                How to Run (Mobile)
+              </h3>
+              <ol class="list-decimal list-inside space-y-2 text-sm text-white/90">
+                <li>Open Chrome & login to maimai DX NET.</li>
+                <li>Go to the target page.</li>
+                <li>Tap URL bar, type bookmark name.</li>
+                <li>Tap the bookmark suggestion.</li>
+              </ol>
+            </div>
+          </div>
         </div>
-
-        <h3 class="font-semibold mt-4">Executing Bookmarklets on Mobile</h3>
-        <ol class="list-decimal list-inside space-y-1 text-sm md:text-base text-[var(--c4)]">
-          <li>Open Chrome and log in to maimai DX NET.</li>
-          <li>Open the target page.</li>
-          <li>Tap the URL bar, delete the page URL and type whatever you've used.</li>
-          <li>Select the bookmarklet from the suggestions.</li>
-        </ol>
       </section>
 
     </main>
   </div>
 </body>
+
 </html>
