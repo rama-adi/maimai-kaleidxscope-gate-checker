@@ -1,12 +1,11 @@
 import { render, h } from "preact";
 import { FAVORITES_HOST, FAVORITES_URL, GATE_DEFINITIONS, SELECTORS } from "./constants";
-import { ensureOnFavoritesPage, promptForGateSelection, initializeSongStatuses, onFavoritesPage } from "./utils/dom";
+import { promptForGateSelection, initializeSongStatuses, onFavoritesPage } from "./utils/dom";
 import { App } from "./components/App";
 import KDXButtonCheck from "./utils/kdx-button";
 import { injectComponent, createModalContainer } from "./utils/injection";
 
 function userscript() {
-    console.log(window.location);
     if (!onFavoritesPage()) {
         const { hostname, pathname } = window.location;
         if (hostname == FAVORITES_HOST && pathname == '/maimai-mobile/home/') {
