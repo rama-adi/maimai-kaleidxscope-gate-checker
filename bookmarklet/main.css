@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+:host {
+    position: fixed;
+    inset: 0;
+    z-index: 999999;
+    font-family: "M PLUS Rounded 1c", "ヒラギノ角ゴ Pro W3", Meiryo, "ＭＳ Ｐゴシック", "MS P Gothic", sans-serif;
+    color: #1e3b75;
+}
+
+#backdrop {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(21, 66, 165, 0.35);
+    backdrop-filter: blur(1px);
+}
+
+#modal {
+    width: min(420px, 92vw);
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+#modal * {
+    box-sizing: border-box;
+}
+
+#song-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+#song-list::-webkit-scrollbar-thumb {
+    background: #8ec5ff;
+    border-radius: 8px;
+}
+
+.lavender-gradient-bg {
+    background: linear-gradient(to bottom, #fdfcff, #d9eeff);
+}
+
+.lavender-gradient-btn {
+    background: linear-gradient(to bottom right, #f85da8, #f2a549);
+}

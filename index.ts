@@ -30,6 +30,7 @@ const bookmarklet = await Bun.build({
     target: 'browser', // default,
     format: 'iife',
     minify: true,
+    plugins: [tailwind],
     jsx: {
         importSource: "preact",
         runtime: "automatic",
@@ -37,12 +38,20 @@ const bookmarklet = await Bun.build({
     tsconfig: "bookmarklet/tsconfig.json"
 });
 
+console.log(await bookmarklet.outputs)
+
 // Copy pics/ogp.png to dist/ogp.png using Bun's file/stream utilities
 const ogpSource = Bun.file("pics/ogp.png");
 await Bun.write(`dist/ogp_${VER}.png`, ogpSource);
 
 
-const text = await bookmarklet.outputs[0]?.text();
+let text = await bookmarklet.outputs[0]?.text();
+const css = await bookmarklet.outputs[1]?.text();
+
+if (text && css) {
+    text = text.replace("%%TAILWIND_STYLES%%", css.replace(/\\/g, "\\\\").replace(/"/g, '\\"').replace(/\n/g, ""));
+}
+
 await Bun.write(`dist/${BOOKMARKLET_FILE}`, text ?? "");
 
 // Create userscript
@@ -51,11 +60,11 @@ const userscript = await Bun.build({
     target: 'browser', // default,
     format: 'iife',
     minify: false,
+    plugins: [tailwind],
     jsx: {
         importSource: "preact",
         runtime: "automatic",
     },
-    sourcemap: 'linked',
     tsconfig: "bookmarklet/tsconfig.json"
 });
 
@@ -64,6 +73,11 @@ let userscriptTemplate = await Bun.file("userscript-template.ts").text();
 userscriptTemplate = userscriptTemplate.replace(/{VER}/g, VER.toString());
 const userscriptText = await userscript.outputs[0]?.text() ?? "";
 userscriptTemplate = userscriptTemplate.replace(/\/\/ <CODE>/g, userscriptText);
+
+// patch tailwindcss
+const userscriptCss = await userscript.outputs[1]?.text() ?? "";
+userscriptTemplate = userscriptTemplate.replace("%%TAILWIND_STYLES%%", userscriptCss.replace(/\\/g, "\\\\").replace(/"/g, '\\"').replace(/\n/g, ""));
+
 await Bun.write(`dist/${USERSCRIPT_FILE}`, userscriptTemplate);
 
 // Load the generated index.html from dist, replace version and bookmarklet code placeholders, and write back.

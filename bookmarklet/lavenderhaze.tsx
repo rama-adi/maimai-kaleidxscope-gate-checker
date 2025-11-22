@@ -1,3 +1,4 @@
+import "./main.css";
 import { render, h } from "preact";
 import { GATE_DEFINITIONS } from "./constants";
 import { ensureOnFavoritesPage, promptForGateSelection, initializeSongStatuses } from "./utils/dom";

@@ -1,3 +1,4 @@
+import "./main.css";
 import { render, h } from "preact";
 import { FAVORITES_HOST, FAVORITES_URL, GATE_DEFINITIONS, SELECTORS } from "./constants";
 import { promptForGateSelection, initializeSongStatuses, onFavoritesPage } from "./utils/dom";
