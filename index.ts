@@ -6,6 +6,7 @@ const CF_PAGE_URL = "https://gate.onebyteworks.my.id";
 const VER = Math.floor(Date.now() / 1000);
 
 const BOOKMARKLET_FILE = `bookmarklet_${VER}.js`
+const USERSCRIPT_FILE = `userscript_${VER}.user.js`
 const BOOKMARKLET_CODE = `javascript:(function(d){if(['https://maimaidx-eng.com'].indexOf(d.location.origin)>=0){var s=d.createElement('script');s.src='${CF_PAGE_URL}/${BOOKMARKLET_FILE}?t='+Math.floor(Date.now()/60000);d.body.append(s);}})(document)`;
 
 try {
@@ -63,7 +64,7 @@ let userscriptTemplate = await Bun.file("userscript-template.ts").text();
 userscriptTemplate = userscriptTemplate.replace(/{VER}/g, VER.toString());
 const userscriptText = await userscript.outputs[0]?.text() ?? "";
 userscriptTemplate = userscriptTemplate.replace(/\/\/ <CODE>/g, userscriptText);
-await Bun.write(`dist/userscript_${VER}.user.js`, userscriptTemplate);
+await Bun.write(`dist/${USERSCRIPT_FILE}`, userscriptTemplate);
 
 // Load the generated index.html from dist, replace version and bookmarklet code placeholders, and write back.
 let html = await Bun.file("dist/index.html").text();
@@ -72,7 +73,8 @@ let html = await Bun.file("dist/index.html").text();
 html = html
     .replace(/\{VER\}/g, VER.toString())
     .replace(/\{BOOKMARKCODE\}/g, BOOKMARKLET_CODE)
-    .replace(/\{OGIMG\}/g, `${CF_PAGE_URL}/ogp_${VER}.png`);
+    .replace(/\{OGIMG\}/g, `${CF_PAGE_URL}/ogp_${VER}.png`)
+    .replace(/\{USERSCRIPTURL\}/g, `${CF_PAGE_URL}/${USERSCRIPT_FILE}`);
 
 // Write the result back
 await Bun.write("dist/index.html", html);
