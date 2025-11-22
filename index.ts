@@ -52,6 +52,7 @@ if (text && css) {
     text = text.replace("%%TAILWIND_STYLES%%", css.replace(/\\/g, "\\\\").replace(/"/g, '\\"').replace(/\n/g, ""));
 }
 
+
 await Bun.write(`dist/${BOOKMARKLET_FILE}`, text ?? "");
 
 // Create userscript

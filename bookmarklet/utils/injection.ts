@@ -42,6 +42,11 @@ export function createModalContainer(): { modalRoot: HTMLElement, remove: () => 
     container.innerHTML = '<div id="modal"></div>';
     shadow.appendChild(container);
 
+    const sheet = new CSSStyleSheet();
+    sheet.replaceSync("%%TAILWIND_STYLES%%");
+    shadow.adoptedStyleSheets = [sheet];
+
+
     const modalRoot = container.querySelector<HTMLElement>("#modal");
     if (!modalRoot) {
         host.remove();

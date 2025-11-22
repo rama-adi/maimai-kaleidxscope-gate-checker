@@ -18,6 +18,7 @@ export function useSongChecker(gate: GateInfo, initialStatuses: SongStatusMap) {
 
     useEffect(() => {
         let mounted = true;
+        return;
 
         const runCheck = async () => {
             pushLog(`Loading songs from ${gate.gateName}...`);
